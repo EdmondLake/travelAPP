@@ -20,20 +20,8 @@
 <script>
 export default {
   name: "HomeWeekend",
-  data() {
-    return {
-      weekendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/b7/2f4621a3a4e12c.jpg_r_640x214_d55c10ba.jpg',
-        title: '温泉有水上乐园',
-        desc: '泡泡温泉，吹吹海风，深觉人生美好'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/b7/2f4621a3a4e12c.jpg_r_640x214_d55c10ba.jpg',
-        title: '温泉有水上乐园',
-        desc: '泡泡温泉，吹吹海风，深觉人生美好'
-      }]
-    }
+  props: {
+    weekendList: Array
   }
 }
 </script>

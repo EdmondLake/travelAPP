@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img :src="item.imgUrl" class="swiper-img">
       </swiper-slide>
@@ -13,19 +13,21 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/77/f63bd04dd5319602.jpg_750x200_6ba8e0ca.jpg'
-      },{
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1801/bd/04554e7c67650302.jpg_750x200_4293d60a.jpg'
-      }]
+      }
+    }
+  },
+  // 只有当整个数组都被加载之后，swiper组件才开始显示，这样避免页面加载时显示的是最后一张图片
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
     }
   }
 
