@@ -29,7 +29,12 @@ export default {
   },
   methods: {
     getDetailInfo () {
-      axios.get('/api/detail.json')
+      // 每次请求时，把页面is带给后端
+      axios.get('/api/detail.json',{
+        params: {
+          id: this.$route.params.id
+        }
+      })
         .then(this.getDetailInfoSucc)
     },
     getDetailInfoSucc (res) {
