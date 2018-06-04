@@ -47,9 +47,14 @@ export default {
     }
   },
   // keep-alive组件激活时调用
+  // 页面展示时绑定scroll事件
   activated () {
     // 一旦滚动页面，就执行handleScroll函数
     window.addEventListener('scroll',this.handleScroll)
+  },
+  // 页面隐藏或被替换时解绑
+  deactivated () {
+    window.removeEventListener('scroll',this.handleScroll)
   }
 }
 </script>
