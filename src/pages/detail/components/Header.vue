@@ -1,7 +1,7 @@
 <template>
   <div>
-    <router-link tag="div" to="/" v-show="showAbs">
-      <div class="header-abs iconfont">
+    <router-link tag="div" to="/" v-show="showAbs" class="header-abs">
+      <div class="iconfont">
         &#xe624;
       </div>
     </router-link>
@@ -10,7 +10,7 @@
       v-show="!showAbs"
       :style="opacityStyl"
     >
-      <router-link tag="div" to="/">
+      <router-link to="/">
         <span class="iconfont header-fixed-back">&#xe624;</span>
       </router-link>
       {{sightName}}
@@ -38,7 +38,7 @@ export default {
       if( top>60 ){
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
-        this.opacityStyl = {opacity}
+        this.opacityStyl = { opacity }
         this.showAbs = false
       }
       else{
@@ -46,16 +46,25 @@ export default {
       }
     }
   },
-  // keep-alive组件激活时调用
-  // 页面展示时绑定scroll事件
-  activated () {
-    // 一旦滚动页面，就执行handleScroll函数
-    window.addEventListener('scroll',this.handleScroll)
+  // // keep-alive组件激活时调用
+  // // 页面展示时绑定scroll事件
+  // activated () {
+  //   // 一旦滚动页面，就执行handleScroll函数
+  //   window.addEventListener('scroll',this.handleScroll)
+  // },
+  // // 页面隐藏或被替换时解绑
+  // deactivated () {
+  //   window.removeEventListener('scroll',this.handleScroll)
+  // }
+  // 因为没有对Detail进行keep-alive缓存，所以无法使用activated和deactivated生命周期函数
+  // 改用mounted和unmounted
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
   },
-  // 页面隐藏或被替换时解绑
-  deactivated () {
-    window.removeEventListener('scroll',this.handleScroll)
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
+
 }
 </script>
 

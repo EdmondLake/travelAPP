@@ -3,23 +3,27 @@
     <div class="banner" @click="handleBannerClick">
       <img :src="bannerImg" alt="" class="banner-img">
       <div class="banner-info">
-        <div class="banner-title">{{sightName}}</div>
+        <div class="banner-title">{{this.sightName}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe692;</span>
           30
         </div>
       </div>
     </div>
-    <common-gallery :gallaryImgs="gallaryImgs" v-show="showGallery" @closeGallery="handleGalleryClose"></common-gallery>
+    <fade-animation>
+      <common-gallery :gallaryImgs="gallaryImgs" v-show="showGallery" @closeGallery="handleGalleryClose"></common-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallery from 'common/gallery/Gallery'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: "DetailBanner",
   components: {
-    CommonGallery
+    CommonGallery,
+    FadeAnimation
   },
   data () {
     return {
@@ -45,7 +49,7 @@ export default {
 <style lang="stylus" scoped>
   .banner
     position: relative
-
+    overflow: hidden
     height: 0
     padding-bottom: 55%
     .banner-img

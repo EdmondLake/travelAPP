@@ -2,8 +2,9 @@
   <div>
     <detail-banner :bannerImg="bannerImg" :sightName="sightName" :gallaryImgs="gallaryImgs"></detail-banner>
     <detail-header :sightName="sightName"></detail-header>
-    <detail-list :list="categoryList"></detail-list>
-    <div class="content"></div>
+    <div class="content">
+      <detail-list :list="categoryList"></detail-list>
+    </div>
   </div>
 </template>
 

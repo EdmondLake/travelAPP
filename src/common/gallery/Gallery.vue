@@ -46,15 +46,16 @@ export default {
   .container >>> .swiper-container
     overflow: inherit
   .container
-    position: absolute
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 99
+    position: fixed
     top: 0
     left: 0
     right: 0
     bottom: 0
     background: #000
-    display: flex
-    flex-direction: column
-    justify-content: center
     color: #fff
     .wrapper
       height: 0

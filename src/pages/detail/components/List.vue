@@ -39,8 +39,6 @@ export default {
       margin-right: .1rem
       -webkit-background-size: .4rem 3rem
       background-size: .4rem 3rem
-      .item-children
-        padding: 0 .2rem
   .item-children
     padding: 0 .2rem
 
