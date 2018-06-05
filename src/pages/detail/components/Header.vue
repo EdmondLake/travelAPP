@@ -10,7 +10,7 @@
       v-show="!showAbs"
       :style="opacityStyl"
     >
-      <router-link to="/">
+      <router-link tag="div" to="/">
         <span class="iconfont header-fixed-back">&#xe624;</span>
       </router-link>
       {{sightName}}
