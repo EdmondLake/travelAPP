@@ -15,3 +15,6 @@ static/mock
 *.ntvs*
 *.njsproj
 *.sln
+
+.idea
+package-lock.json
