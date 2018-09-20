@@ -15,7 +15,7 @@ module.exports = {
         // target: 'http://localhost:80'
         target: 'http://localhost:8080',
         pathRewrite: {
-          '^/api': './static/mock'
+          '^/api': '/static/mock'
         }
       }
     },
@@ -50,7 +50,7 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: './static',
+    assetsSubDirectory: '/static/mock',
     assetsPublicPath: './',
 
     /**
